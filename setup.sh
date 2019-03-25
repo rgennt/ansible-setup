@@ -21,3 +21,8 @@ elif [ ${OS_DISTRO} == 'debian' ]; then
     apt update
     apt install -y -f ansible
 fi
+
+ANSIBLE_BIN=$(which ansible)
+if [ $? -ne 0 ]; then
+    echo "Unable to find Ansible binary, something has gone wrong. Install manually"
+fi
