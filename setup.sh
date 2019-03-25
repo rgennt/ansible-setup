@@ -26,3 +26,10 @@ ANSIBLE_BIN=$(which ansible)
 if [ $? -ne 0 ]; then
     echo "Unable to find Ansible binary, something has gone wrong. Install manually"
 fi
+
+# Create Ansible roles and inventory directories
+ANSIBLE_SUPPORT_PATHS=("ansible-roles" "ansible-inventory")
+for i in ${ANSIBLE_SUPPORT_PATHS[@]}; do
+    mkdir -p "../${i}"
+done
+
