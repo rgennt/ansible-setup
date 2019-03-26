@@ -1,0 +1,4 @@
+# ansible-vars
+# common vars used across scripts
+export ANSIBLE_ROLES="${PWD}/roles"
+export ANSIBLE_INVENTORY="${PWD}/inventory"
