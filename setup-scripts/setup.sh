@@ -22,7 +22,7 @@ if [ ! -e ${ANSIBLE_CONFIG_FILE} ]; then
 [defaults]
 
 inventory   = ${ANSIBLE_INVENTORY}
-roles       = ${ANSIBLE_ROLES}
+roles_path  = ${ANSIBLE_ROLES}
 " > ansible.cfg
 
 fi
