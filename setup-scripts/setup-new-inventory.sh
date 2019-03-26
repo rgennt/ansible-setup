@@ -3,7 +3,8 @@
 # setup-new-inventory.sh
 # Sets up a new inventory structure for ansible-playbooks
 
-ANSIBLE_INVENTORY_PATH="../ansible-inventory"
+source setup-scripts/ansible-setup-vars
+
 ANSIBLE_INVENTORIES=("production" "testing")
 
 for inv in "${ANSIBLE_INVENTORIES[@]}"; do
