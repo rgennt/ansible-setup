@@ -5,7 +5,7 @@ with Ansible.
 
 This is adapted from the official Ansible [Installation Guide](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html).
 
-Clone this repository into a root andible path and run `sudo setup-scripts/setup.sh` as a user with elevated privileges.
+Clone this repository into a root andible path and run `setup-scripts/setup.sh` as a user with elevated privileges.
 
 `setup.sh` calls `install-ansible.sh` as an elevated user to:
 
