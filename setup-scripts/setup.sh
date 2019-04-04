@@ -7,7 +7,7 @@ source "setup-scripts/ansible-setup-vars"
 sudo setup-scripts/install-ansible.sh
 
 # Create Ansible roles and inventory directories
-ANSIBLE_SUPPORT_PATHS=(${ANSIBLE_ROLES} ${ANSIBLE_INVENTORY})
+ANSIBLE_SUPPORT_PATHS=(${ANSIBLE_ROLES} ${ANSIBLE_INVENTORY_PATH})
 for i in ${ANSIBLE_SUPPORT_PATHS[@]}; do
     echo "Creating directory ${i}"
     mkdir -p "${i}"
