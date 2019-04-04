@@ -4,7 +4,15 @@
 
 source "setup-scripts/ansible-setup-vars"
 
-sudo setup-scripts/install-ansible.sh
+if [ ${EUID} -eq 0 ]; then
+    echo "
+    WARNING: Setting up ACM as root.  
+    The Inventory and Roles directories will be owned by root, which may not be intended.
+    
+"
+fi
+
+sudo ./setup-scripts/install-ansible.sh
 
 # Create Ansible roles and inventory directories
 ANSIBLE_SUPPORT_PATHS=(${ANSIBLE_ROLES} ${ANSIBLE_INVENTORY_PATH})
