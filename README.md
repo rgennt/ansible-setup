@@ -23,17 +23,24 @@ the auditability that may be required.
 
 ### Summary
 
-1. Clone this repository 
+1. Clone this repository.
 2. Run `setup-scripts/setup.sh` as a user that can elevate privileges. (herein 
    known as _setup-user_)
 3. Run `setup-scripts/setup-new-inventory.sh` to generate a default directory 
    structure and populate it with a `localhost` object.
 4. Create password hashes for the _setup-user_ and _ansible-user_ accounts.
 
+```bash
+git clone https://github.com/mfallone/ansible-setup.git ./ansible
+cd ansible
+./setup-scripts/setup.sh
+./setup-scripts/setup-new-inventory.sh
+# See README - Next Steps
+```
 
 ### Detailed Steps
 
-Clone this repository into a root andible path and run `setup-scripts/setup.sh` 
+Clone this repository into a new root andible path and run `setup-scripts/setup.sh` 
 as a user with elevated privileges.
 
 `setup.sh` calls `install-ansible.sh` as an elevated user to:
