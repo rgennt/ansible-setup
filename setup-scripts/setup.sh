@@ -35,3 +35,8 @@ roles_path  = ${ANSIBLE_ROLES}
 
 fi
 
+if [ -e ${ANSIBLE_ROLES} ]; then
+    setup-scripts/pull-repositories.sh
+fi
+
+
