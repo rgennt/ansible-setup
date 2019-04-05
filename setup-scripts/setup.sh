@@ -31,6 +31,8 @@ if [ ! -e ${ANSIBLE_CONFIG_FILE} ]; then
 
 inventory   = ${ANSIBLE_INVENTORY}
 roles_path  = ${ANSIBLE_ROLES}
+
+private_key_file = .ssh/ansible_id_ecdsa
 " > ansible.cfg
 
 fi
