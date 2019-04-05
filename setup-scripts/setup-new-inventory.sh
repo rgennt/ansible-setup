@@ -18,10 +18,19 @@ for inv in "${ANSIBLE_INVENTORIES[@]}"; do
              ${ANSIBLE_INVENTORY_PATH}/${inv}/group_vars \
              ${ANSIBLE_INVENTORY_PATH}/${inv}/host_vars/localhost
         
-        touch ${ANSIBLE_INVENTORY_PATH}/${inv}/hosts \
+        touch ${ANSIBLE_INVENTORY_PATH}/${inv}/hosts.yaml \
               ${ANSIBLE_INVENTORY_PATH}/${inv}/host_vars/localhost/vars
         
         echo "ansible_connection: local" >> ${ANSIBLE_INVENTORY_PATH}/${inv}/host_vars/localhost/vars
         echo "setup_user: $(whoami)" >> ${ANSIBLE_INVENTORY_PATH}/${inv}/host_vars/localhost/vars    
+
+        ACM_HOSTNAME=$(hostname)
+        mkdir "${ANSIBLE_INVENTORY_PATH}/${inv}/host_vars/${ACM_HOSTNAME}"
+        echo "
+all:
+  hosts:
+    ${ACM_HOSTNAME}
+" > "${ANSIBLE_INVENTORY_PATH}/${inv}/hosts.yaml"
+
     fi
 done

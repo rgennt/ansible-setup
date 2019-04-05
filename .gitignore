@@ -1,3 +1,4 @@
+.ssh
 *.retry
 ansible.cfg
 inventory
