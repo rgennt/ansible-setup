@@ -16,7 +16,18 @@ for inv in "${ANSIBLE_INVENTORIES[@]}"; do
              ${ANSIBLE_INVENTORY_PATH}/${inv} \
              ${ANSIBLE_INVENTORY_PATH}/${inv}/host_vars \
              ${ANSIBLE_INVENTORY_PATH}/${inv}/group_vars \
+             ${ANSIBLE_INVENTORY_PATH}/${inv}/group_vars/all \
              ${ANSIBLE_INVENTORY_PATH}/${inv}/host_vars/localhost
+
+        echo "---
+setup_user: $(whoami)
+ansible_new_user: ansible-user
+ansible_new_uid: 999
+ansible_new_user_group: ansible-user
+ansible_new_gid: 999
+ansible_new_user_password: \"{{ vault_new_user_password }}\"
+setup_ssh_password: \"{{ vault_setup_ssh_password }}\"
+" > "${ANSIBLE_INVENTORY_PATH}/${inv}/group_vars/all/vars"
         
         touch ${ANSIBLE_INVENTORY_PATH}/${inv}/hosts.yaml \
               ${ANSIBLE_INVENTORY_PATH}/${inv}/host_vars/localhost/vars
@@ -26,7 +37,7 @@ for inv in "${ANSIBLE_INVENTORIES[@]}"; do
 
         ACM_HOSTNAME=$(hostname)
         mkdir "${ANSIBLE_INVENTORY_PATH}/${inv}/host_vars/${ACM_HOSTNAME}"
-        echo "
+        echo "---
 all:
   hosts:
     ${ACM_HOSTNAME}
