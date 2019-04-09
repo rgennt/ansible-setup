@@ -1,10 +1,10 @@
 ---
 # file: 01-setup_network_hosts.yaml
 - hosts: all
-  vars:
-    ansible_ssh_pass: "{{ setup_ssh_password }}"
-    ansible_become_pass: "{{ setup_ssh_password }}"
-  remote_user: "{{ setup_user }}"
+  #vars:
+  #  ansible_ssh_pass: "{{ setup_ssh_password }}"
+  #  ansible_become_pass: "{{ setup_ssh_password }}"
+  #remote_user: "{{ setup_user }}"
   #become: true
   tasks:
     - name: Whoami
